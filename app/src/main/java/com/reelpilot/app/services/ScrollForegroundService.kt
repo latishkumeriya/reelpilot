@@ -17,6 +17,7 @@ import com.reelpilot.app.data.PrefsRepository
 import com.reelpilot.app.overlay.FloatingBubbleManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ScrollForegroundService : LifecycleService() {

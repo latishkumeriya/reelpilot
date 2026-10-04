@@ -12,7 +12,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ViewTreeLifecycleOwner
+import androidx.lifecycle.viewtree.ViewTreeLifecycleOwner
 import com.reelpilot.app.data.PrefsRepository
 import com.reelpilot.app.manager.ScrollState
 import com.reelpilot.app.manager.ScrollTimerManager
