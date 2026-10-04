@@ -3,7 +3,7 @@
 Adjustable timer: presets 35s / 40s / 60s + Custom 5–300s. No root, no login, 100% on-device.
 
 ### Features
-- Auto-swipe via Accessibility + countdown Compose bubble (ring + ⏸/▶ + +10s + ⏹)
+- Auto-swipe via Accessibility + countdown overlay bubble (countdown + Pause/+10s/Stop)
 - Target apps: Instagram Reels (default), YouTube Shorts, TikTok (opt-in in Settings)
 - Auto-pause when leaving target app or screen off; manual swipe resets timer
 - Auto-stop after N reels (0 = unlimited, up to 200); service stops itself at the limit

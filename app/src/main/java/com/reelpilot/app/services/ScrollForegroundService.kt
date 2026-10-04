@@ -47,8 +47,8 @@ class ScrollForegroundService : LifecycleService() {
         scope.launch { try { prefs.setSessionWasActive(true) } catch (_: Exception) {} }
         timer.onMaxReached = { scope.launch { shutdown() } }
         scope.launch { timer.start() }
-        // Phase 4: Compose bubble needs a LifecycleOwner — this LifecycleService is one.
-        try { bubble.show(this@ScrollForegroundService) { scope.launch { shutdown() } } } catch (_: Exception) {}
+        // Overlay bubble (classic Views, no extra dependencies).
+        try { bubble.show { scope.launch { shutdown() } } } catch (_: Exception) {}
         registerScreenReceiver()
 
         collectJob = scope.launch {

@@ -40,10 +40,9 @@ Kotlin + Jetpack Compose + Hilt + DataStore.
 6. Bubble tap → pause/resume. Notif Pause/Resume/Stop all work.
 7. Xiaomi device → Settings shows Autostart card, battery Fix opens ignore-optimizations.
 
-## Phase 4 DONE
-- `overlay/ReelBubble.kt` — Compose card with countdown ring (remaining/total), ⏸/▶ + +10s + ⏹ buttons
-- `overlay/FloatingBubbleManager.kt` — ComposeView hosted in LifecycleService, drag-to-move, live collect of timer/prefs/coordinator
-- `services/ScrollForegroundService.kt` — now extends LifecycleService, passes itself as LifecycleOwner to bubble, new +10s notif action, auto-shutdown on max-reels via onMaxReached
+## Phase 4 DONE (overlay reworked in CI fix: classic Views, not Compose — ComposeView in a Service overlay needs ViewTreeLifecycleOwner artifacts)
+- `overlay/FloatingBubbleManager.kt` — countdown + status + Pause/+10s/Stop buttons, drag-to-move, live collect of timer/prefs/coordinator
+- `services/ScrollForegroundService.kt` — new +10s notif action, auto-shutdown on max-reels via onMaxReached
 - `manager/ScrollTimerManager.kt` — addSeconds(10) snooze, recordScroll/recordSession, onMaxReached callback
 - `data/PrefsRepository.kt` — enableInstagram/Youtube/Tiktok, totalReels/totalSessions, recordSession/recordScroll/resetStats
 - `manager/AppDetector.kt` — Reels/Shorts/TikTok package set + labels
