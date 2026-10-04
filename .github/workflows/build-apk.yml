@@ -35,6 +35,19 @@ jobs:
         working-directory: .
         run: gradle :app:assembleDebug --stacktrace
 
+      - name: Verify APK before upload (signature, integrity, identity)
+        run: |
+          APK=app/build/outputs/apk/debug/app-debug.apk
+          BT="$ANDROID_SDK_ROOT/build-tools/34.0.0"
+          echo "--- file ---"
+          ls -lh "$APK"
+          echo "--- sha256 ---"
+          sha256sum "$APK"
+          echo "--- signature ---"
+          "$BT/apksigner" verify --print-certs "$APK"
+          echo "--- package identity ---"
+          "$BT/aapt" dump badging "$APK" | head -5
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:

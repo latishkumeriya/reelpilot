@@ -36,6 +36,15 @@ android {
         file(reelStoreFile).exists()
 
     signingConfigs {
+        // Pinned shared debug key: every CI build gets the SAME signature,
+        // so new builds update cleanly instead of "App not installed".
+        // (Standard Android debug credentials — safe to commit, NOT a release key.)
+        create("debug") {
+            storeFile = rootProject.file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
         create("reel") {
             if (hasReleaseSigning) {
                 storeFile = file(reelStoreFile!!)
@@ -47,6 +56,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            signingConfig = signingConfigs.getByName("debug")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
