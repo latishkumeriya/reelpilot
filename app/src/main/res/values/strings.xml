@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ReelPilot</string>
+    <string name="accessibility_desc">ReelPilot needs Accessibility access to detect Instagram Reels screen and auto-swipe to the next reel after your chosen timer. No personal data is collected.</string>
+</resources>
