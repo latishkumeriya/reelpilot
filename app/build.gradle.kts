@@ -39,7 +39,8 @@ android {
         // Pinned shared debug key: every CI build gets the SAME signature,
         // so new builds update cleanly instead of "App not installed".
         // (Standard Android debug credentials — safe to commit, NOT a release key.)
-        create("debug") {
+        // NOTE: AGP pre-creates a "debug" config, so we reconfigure it via getByName.
+        getByName("debug") {
             storeFile = rootProject.file("debug.keystore")
             storePassword = "android"
             keyAlias = "androiddebugkey"
